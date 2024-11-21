@@ -12,6 +12,25 @@ pipeline {
             }
         }
         
+        // IF YOUR GITHUB REPOSITORY IS PRIVATE, USE THIS SECTION TO CONFIGURE YOUR CHECKOUT STAGE WITH YOUR GIT CREDENTIALS. REFER TO THE DOCS ON HOW TO CONFIGURE THE CREDENTIALS.
+        // stage('Git Checkout') {
+        //     steps {
+        //         // Using credentials to checkout private repository
+        //         withCredentials([usernamePassword(credentialsId: 'github-access', 
+        //                                        usernameVariable: 'GIT_USERNAME', 
+        //                                        passwordVariable: 'GIT_PASSWORD')]) {
+        //             sh '''
+        //                 git config --global credential.helper cache
+        //                 echo "https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com" > ~/.git-credentials
+        //             '''
+        //             git branch: 'main', 
+        //                 url: 'https://github.com/Syndrizzle/jenkins-stuff.git',
+        //                 credentialsId: 'github-access'
+        //         }
+        //     }
+        // }
+
+        
         stage('Check Disk Usage') {
             steps {
                 script {
