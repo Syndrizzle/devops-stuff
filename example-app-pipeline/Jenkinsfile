@@ -22,7 +22,7 @@ pipeline {
     stages {        
         stage('Checkout') {
             steps {
-                git branch: "master", url: 'https://github.com/Syndrizzle/example-java-maven-app.git'
+                git branch: "main", url: 'https://github.com/Syndrizzle/devops-stuff.git'
             }
         }
 
@@ -31,6 +31,7 @@ pipeline {
                 script {
                     echo "Building the project..."
                     sh '''
+                        cd example-app-pipeline/
                         mvn clean package -DskipTests
                     '''
                 }
@@ -42,19 +43,20 @@ pipeline {
         stage('Test') {
             steps {
                 sh '''
+                    cd example-app-pipeline/
                     mvn test
                 '''
             }
             post {
                 always {
-                    junit 'target/surefire-reports/*.xml'
+                    junit 'example-app-pipeline/target/surefire-reports/*.xml'
                 }
             }
         }
         
         stage('Deliver') { 
             steps {
-                sh './jenkins/scripts/deliver.sh' 
+                sh './example-app-pipeline/jenkins/scripts/deliver.sh' 
             }
         }
     }
