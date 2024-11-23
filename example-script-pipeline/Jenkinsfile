@@ -18,7 +18,7 @@ pipeline {
                 script {
                     sh '''
                         chmod +x example-script-pipeline/examples/disk_check.sh
-                        ./example-script-pipeline/examples/process_monitor.sh
+                        ./example-script-pipeline/examples/disk_check.sh
                     '''
                 }
             }
