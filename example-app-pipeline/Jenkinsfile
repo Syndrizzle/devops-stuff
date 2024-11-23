@@ -30,8 +30,8 @@ pipeline {
             steps {
                 script {
                     echo "Building the project..."
+                    cd 'example-app-pipeline/'
                     sh '''
-                        cd example-app-pipeline/
                         mvn clean package -DskipTests
                     '''
                 }
@@ -42,8 +42,8 @@ pipeline {
         
         stage('Test') {
             steps {
+                cd 'example-app-pipeline/'
                 sh '''
-                    cd example-app-pipeline/
                     mvn test
                 '''
             }
@@ -56,6 +56,7 @@ pipeline {
         
         stage('Deliver') { 
             steps {
+                chmod '+x', './example-app-pipeline/jenkins/scripts/deliver.sh'
                 sh './example-app-pipeline/jenkins/scripts/deliver.sh' 
             }
         }
