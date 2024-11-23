@@ -1,0 +1,73 @@
+pipeline {
+    agent any
+    
+    options {
+        timeout(time: 10, unit: 'MINUTES')
+    }
+
+    tools {
+        maven 'Maven 3.9.9'
+        jdk 'Java 17'
+    }
+
+    triggers {
+        // pollSCM('H/5 * * * *') // Disable Polling for now.
+        githubPush()
+    }
+
+    parameters {
+      gitParameter branch: '', branchFilter: '.*', defaultValue: 'origin/master', description: 'Choose the specified Git Branch to build from.', name: 'Branch', quickFilterEnabled: false, requiredParameter: true, selectedValue: 'NONE', sortMode: 'NONE', tagFilter: '*', type: 'GitParameterDefinition'
+    }
+
+    stages {        
+        stage('Checkout') {
+            steps {
+                git branch: "master", url: 'https://github.com/Syndrizzle/example-java-maven-app.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                script {
+                    echo "Building the project..."
+                    sh '''
+                        mvn clean package -DskipTests
+                    '''
+                }
+                archiveArtifacts artifacts: 'target/*.jar', allowEmptyArchive: true
+            }
+        }
+
+        
+        stage('Test') {
+            steps {
+                sh '''
+                    mvn test
+                '''
+            }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
+            }
+        }
+        
+        stage('Deliver') { 
+            steps {
+                sh './jenkins/scripts/deliver.sh' 
+            }
+        }
+    }
+    
+    post {
+        success {
+            echo "Pipeline succeeded!"
+        }
+        failure {
+            echo "Pipeline failed!"
+        }
+        always {
+            cleanWs()
+        }
+    }
+}
