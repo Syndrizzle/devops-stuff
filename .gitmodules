@@ -1,0 +1,3 @@
+[submodule "example-java-app-pipeline"]
+	path = example-java-app-pipeline
+	url = https://github.com/Syndrizzle/example-java-app-pipeline
