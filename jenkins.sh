@@ -309,7 +309,7 @@ check_jenkins_status() {
 # Main script
 echo "✨ Jenkins Utility Script"
 echo "📦 1. Install Jenkins"
-echo "🗑️  2. Uninstall Jenkins"
+echo "🗑️ 2. Uninstall Jenkins"
 echo -n "Select an option (1/2): "
 read -r option
 
