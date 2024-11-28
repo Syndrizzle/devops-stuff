@@ -1,6 +1,6 @@
 # DevOps Stuff
 
-![Jenkins](https://www.jenkins.io/images/logos/nerd/nerd.svg)
+<img src="https://www.jenkins.io/images/logos/nerd/nerd.svg" width="150">
 
 Welcome to the devops-stuff repository! Here you'll find information on how to do certain simple things in Jenkins, such as configuring nodes, plugins, creating pipelines, and much more :)
 
