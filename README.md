@@ -161,6 +161,7 @@ Click on the `Assign Roles` in the left sidebar. You'll see a similar tabular st
 	- Cick on the `Add User` button, and type in the username of the created test user, in my case, it was `testuser`. 
 	- You will see instead of saying `testuser`, it says the user's full name, which means Jenkins has recognized your specified user.
 	- Now, we will grant this user the employee status, which will give them only the specified permissions in your jenkins infrastructure.
+ 
 	![Image](assets/7.png)
 	
 - Assigning **Item Roles**:
