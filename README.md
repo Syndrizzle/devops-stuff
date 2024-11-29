@@ -1,5 +1,30 @@
 # DevOps Stuff
 
+## Table Of Contents
+- [DevOps Stuff](#devops-stuff)
+    + [Setting Up Jenkins](#setting-up-jenkins)
+      - [📦️ Installing Jenkins](#%EF%B8%8F-installing-jenkins)
+      - [⚙️ Initial Setup](%EF%B8%8F-initial-setup)
+    + [Managing Jenkins](#managing-jenkins)
+      - [📦️ Installing Plugins](%EF%B8%8F-installing-plugins)
+      - [👥 Role Based Authorization](#-role-based-authorization)
+        * [Creating a Test User](#creating-a-test-user)
+        * [Understanding Roles](#understanding-roles)
+        * [Creating Roles](#creating-roles)
+        * [Assigning Roles](#assigning-roles)
+      - [🛠️ Managing Tools](#%EF%B8%8F-managing-tools)
+        * [Installing Java](#installing-java)
+        * [Installing Maven](#installing-maven)
+      - [🖥️ Managing Nodes](#%EF%B8%8F-managing-nodes)
+        * [Understanding Nodes](#understanding-nodes)
+        * [Setting up your Node](#setting-up-your-node)
+        * [Connecting Node to Jenkins](#connecting-node-to-jenkins)
+    + [Examples](#examples)
+      - [📀 Pipeline to execute Shell Scripts](#-pipeline-to-execute-shell-scripts)
+      - [📀 Pipeline to build a Java App](#-pipeline-to-build-a-java-app)
+    + [Misc](#misc)
+ 
+  
 <img src="https://www.jenkins.io/images/logos/nerd/nerd.svg" width="150">
 
 Welcome to the devops-stuff repository! Here you'll find information on how to do certain simple things in Jenkins, such as configuring nodes, plugins, creating pipelines, and much more :)
